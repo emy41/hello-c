@@ -4,17 +4,19 @@
 
 #include <stdio.h>
 #include <stdint.h>
-
-uint8_t message[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', ' ', ':', '3'};
-message_size = sizeof(message)
+#include <string.h>
 
 int main(void) {
-  for (size_t i = 1; i <= message_size; i++) {
-      for (size_t j = 0; j < i; i++) {
-          printf("%c", message[j]);
-      }
-      printf("\n");
-  }
-  
-  return 0;
+    char message[] = "Hello World :3";
+    char buffer[16];
+    int length = strlen(message);
+
+    for (int i = 0; i < length; i++) {
+        buffer[i] = message[i];
+        buffer[i+1] = '\0';
+        printf("%s\n", buffer);
+    }
+
+    return 0;
 }
+
